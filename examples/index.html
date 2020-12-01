@@ -11,13 +11,17 @@
 <body>
     <div class="container" style="text-align: center;">
         <h1 class="typewriter-animated-cursor" id="title-block"></h1>
+        <h1 class="typewriter-animated-cursor" id="subtitle-block"></h1>
     </div>
 
     <script type="module">
-        import { typeText } from '../js/typewriter.js';
+        import { typeText, removeText } from '../js/typewriter.js';
         let titleBlock = document.querySelector("#title-block");
+        let subtitleBlock = document.querySelector("#subtitle-block");
         typeText(titleBlock, 'Hello').then(() => {
-            typeText(titleBlock, ' World')
+            typeText(titleBlock, ' World').then(() => {
+                removeText(titleBlock, 3)
+            })
         });
     </script>
 </body>
