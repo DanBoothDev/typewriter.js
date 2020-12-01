@@ -1,0 +1,23 @@
+.typewriter-animated-cursor::after {
+    content: "|";
+    margin-left: 0.2em;
+    animation: typewriter-cursor 1.2s linear infinite;
+}
+
+@keyframes typewriter-cursor {
+    0% {
+        opacity: 1;
+    }
+
+    49% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
