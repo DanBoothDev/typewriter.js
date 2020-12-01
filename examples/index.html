@@ -13,10 +13,12 @@
         <h1 class="typewriter-animated-cursor" id="title-block"></h1>
     </div>
 
-
     <script type="module">
-        import '../js/typewriter.js';
-        let titleBlock = document.querySelector("#title-block");    
+        import { typeText } from '../js/typewriter.js';
+        let titleBlock = document.querySelector("#title-block");
+        typeText(titleBlock, 'Hello').then(() => {
+            typeText(titleBlock, ' World')
+        });
     </script>
 </body>
 
