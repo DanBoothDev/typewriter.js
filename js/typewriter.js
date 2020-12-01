@@ -1,19 +1,13 @@
 const DEFAULT_TYPE_SPEED = 250;
 
-
-function asyncLetter(letter, speed = DEFAULT_TYPE_SPEED) {
+// Add new chars
+function asyncLetter(letter, speed) {
     return new Promise(resolve => {
         setTimeout(() => resolve(letter), speed);
     });
 }
 
-function asyncRemoveIndex(index, speed) {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(index), speed);
-    })
-}
-
-async function* asyncLetterGenerator(text, speed = DEFAULT_TYPE_SPEED) {
+async function* asyncLetterGenerator(text, speed) {
     const letters = [...text];
     while (letters.length > 0) {
         const letter = letters.shift();
@@ -21,13 +15,20 @@ async function* asyncLetterGenerator(text, speed = DEFAULT_TYPE_SPEED) {
     }
 }
 
-async function typeText(targetElement, text, delay) {
+async function typeText(targetElement, text, delay = DEFAULT_TYPE_SPEED) {
     for await (const letter of asyncLetterGenerator(text, delay)) {
         targetElement.textContent += letter;
     }
 }
 
-async function* asyncLetterRemoveGenerator(numChars, speed = DEFAULT_TYPE_SPEED) {
+// Remove existing chars
+function asyncRemoveIndex(index, speed) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(index), speed);
+    })
+}
+
+async function* asyncLetterRemoveGenerator(numChars, speed) {
     let letterIdx = 0;
     while (letterIdx < numChars) {
         letterIdx += 1;
@@ -35,10 +36,11 @@ async function* asyncLetterRemoveGenerator(numChars, speed = DEFAULT_TYPE_SPEED)
     }
 }
 
-async function removeText(targetElement, numChars, delay) {
+async function removeText(targetElement, numChars, delay = DEFAULT_TYPE_SPEED) {
     for await (const letter of asyncLetterRemoveGenerator(numChars, delay)) {
         targetElement.textContent = targetElement.textContent.slice(0, -1);
     }
 }
 
+///////////
 export { typeText, removeText };
