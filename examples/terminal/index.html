@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Terminal Example</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+    <body>
+        <main id="container">
+            <div
+                id="terminal">
+                <!-- Terminal Bar -->
+                <section id="terminal__bar">
+                    <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9472;</button>
+                        <button class="bar__button">&#9723;</button>
+                    </div>
+                    <p id="bar__user">danbooth@dev: ~</p>
+                </section>
+                <!-- Terminal Body -->
+                <section id="terminal__body">
+                    <div id="terminal__prompt">
+                        <span id="terminal__prompt--location">~</span>
+                        <span class="terminal__prompt--text">$&nbsp;</span>
+                        <span class="terminal__prompt--text">Hi, I'm Dan</span>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <script type="module" src="main.js"></script>
+    </body>
+</html>
