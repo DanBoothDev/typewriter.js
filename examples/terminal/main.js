@@ -1,4 +1,4 @@
-import { typeText, removeText } from '../js/typewriter.js';
+import { typeText, removeText } from '../../js/typewriter.js';
 
 function createPromptRow(targetId, textId) {
     let target = document.getElementById(targetId);
@@ -18,12 +18,31 @@ function createPromptRow(targetId, textId) {
     let promptText = document.createElement('span');
     promptText.id = textId;
     promptText.className = 'terminal__prompt--text';
-    promptText.appendChild(document.createTextNode('test'));
     div.appendChild(promptText);
 
     target.appendChild(div);
 }
 
+function delay(callbackFunc) {
+    setTimeout(function () {
+        callbackFunc();
+    }, 1000);
+}
+
+function createProgrammer() {
+    let rowId = 'funny'
+    createPromptRow('terminal__body', rowId);
+
+    let titleBlock = document.getElementById(rowId);
+    // enable animated cursor
+    titleBlock.classList.add('animated-cursor');
+    // begin typing
+    typeText(titleBlock, 'I write code').then(() => {
+        // disable animated cursor
+        titleBlock.classList.remove('animated-cursor');
+        delay(createDir);
+    });
+}
 
 function createIntro() {
     // create intro line
@@ -34,13 +53,11 @@ function createIntro() {
     // enable animated cursor
     titleBlock.classList.add('animated-cursor');
     // begin typing
-    typeText(titleBlock, 'Hello World').then(() => {
-        // remove text
-        removeText(titleBlock, "World".length).then(() => {
-            // disable animated cursor
-            titleBlock.classList.remove('animated-cursor');
-        });
+    typeText(titleBlock, 'Hi, my name is Dan').then(() => {
+        // disable animated cursor
+        titleBlock.classList.remove('animated-cursor');
+        delay(createProgrammer);
     });
 }
 
-createIntro();
+delay(createIntro);
