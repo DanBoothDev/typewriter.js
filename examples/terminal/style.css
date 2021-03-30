@@ -11,12 +11,14 @@ body {
   justify-content: center;  
   align-items: center;  
   height: 100vh;
-} 
+}
 #terminal {  
   width: 70vw;  
   height: 65vh;  
   box-shadow: 2px 4px 10px rgba(0,0,0,0.5);
-} 
+  position: absolute;
+  cursor: move;
+}
 #terminal__bar {  
   display: flex;  
   width: 100%;  
