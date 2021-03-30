@@ -12,7 +12,7 @@ function createPromptRow(targetId, textId) {
 
     let decoratorSpan = document.createElement('span');
     decoratorSpan.className = 'terminal__prompt--text';
-    decoratorSpan.appendChild(document.createTextNode('$ '));
+    decoratorSpan.appendChild(document.createTextNode('$\u00A0'));
     div.appendChild(decoratorSpan);
 
     let promptText = document.createElement('span');
